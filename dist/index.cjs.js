@@ -2066,6 +2066,7 @@ var IconModule = /*#__PURE__*/Object.freeze({
     TelegramIcon: Icon$V,
     TicketIcon: Icon$W,
     TradeIcon: Icon$X,
+    PredictionsIcon: Icon$d,
     TwitterIcon: Icon$Y,
     RedditIcon: Icon$Z,
     AuditIcon: Icon$_,
