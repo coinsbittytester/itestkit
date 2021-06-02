@@ -26,7 +26,7 @@ const StyledPage = styled(Container)`
 const PageMeta = () => {
   const { t } = useTranslation()
   const { pathname } = useLocation()
-  const cakePriceUsd = usePriceCakeBusd()
+  const cakePriceUsd = usePriceCakeBusd().times(1e9)
   const cakePriceUsdDisplay = cakePriceUsd.gt(0)
     ? `$${cakePriceUsd.toNumber().toLocaleString(undefined, {
         minimumFractionDigits: 3,
