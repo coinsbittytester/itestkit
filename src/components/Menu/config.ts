@@ -11,12 +11,12 @@ const config: (t: ContextApi['t']) => MenuEntry[] = (t) => [
   {
     label: t('Exchange'),
     icon: 'TradeIcon',
-    href: 'https://coinsbittytester.github.io/#/swap?outputCurrency=0xaabcac4b236d1a7290fb05234862348d274621cf',
+    href: 'exchange/#/swap?outputCurrency=0xaabcac4b236d1a7290fb05234862348d274621cf',
   },
   {
     label: t('Liquidity'),
     icon: 'TradeIcon',
-    href: 'https://coinsbittytester.github.io/#/add/BNB/0xaabcac4b236d1a7290fb05234862348d274621cf',
+    href: 'exchange/#/add/BNB/0xaabcac4b236d1a7290fb05234862348d274621cf',
   },
   {
     label: t('Prediction (BETA)'),
@@ -32,6 +32,10 @@ const config: (t: ContextApi['t']) => MenuEntry[] = (t) => [
     label: t('Info'),
     icon: 'InfoIcon',
     items: [
+      {
+        label: 'IceBreak-R Chart on DexTools',
+        href: 'https://www.dextools.io/app/pancakeswap/pair-explorer/'.concat(getCakeAddress()),
+      },
       {
         label: 'IceBreak-R on PancakeSwap',
         href: 'https://pancakeswap.info/token/'.concat(getCakeAddress()),
