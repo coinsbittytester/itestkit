@@ -29,13 +29,13 @@ const Menu = (props) => {
       setLang={setLanguage}
       cakePriceUsd={cakePriceUsd.toNumber() * 1e9}
       links={config(t)}
-      profile={{
+/*       profile={{
         username: profile?.username,
         image: profile?.nft ? `/images/nfts/${profile.nft?.images.sm}` : undefined,
         profileLink: '/profile',
         noProfileLink: '/profile',
         showPip: !profile?.username,
-      }}
+      }} */
       {...props}
     />
   )

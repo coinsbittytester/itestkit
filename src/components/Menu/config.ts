@@ -9,14 +9,14 @@ const config: (t: ContextApi['t']) => MenuEntry[] = (t) => [
     href: '/',
   },
   {
-    label: t('Exchange'),
+    label: t('Swap'),
     icon: 'TradeIcon',
-    href: '/exchange/#/swap?outputCurrency=0xaabcac4b236d1a7290fb05234862348d274621cf',
+    href: 'https://coinsbittytester.github.io/amm/#/swap?inputCurrency=BNB&outputCurrency=0xaabcac4b236d1a7290fb05234862348d274621cf',
   },
   {
     label: t('Liquidity'),
     icon: 'TradeIcon',
-    href: '/exchange/#/add/BNB/0xaabcac4b236d1a7290fb05234862348d274621cf',
+    href: 'https://coinsbittytester.github.io/amm/#/add/BNB/0xaabcac4b236d1a7290fb05234862348d274621cf',
   },
   {
     label: t('Prediction (BETA)'),

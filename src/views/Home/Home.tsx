@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
-import { Heading, Text, BaseLayout } from '@pancakeswap/uikit'
+import { Heading, Text, BaseLayout, useMatchBreakpoints } from '@pancakeswap/uikit'
 import { useAppDispatch } from 'state'
 import { fetchFarmsPublicDataAsync, nonArchivedFarms } from 'state/farms'
 import { useTranslation } from 'contexts/Localization'
@@ -16,7 +16,7 @@ import useTheme from 'hooks/useTheme'
 
 const Hero = styled.div`
   align-items: center;
-  background-image: url('/images/pan-bg-mobile.svg');
+  background-image: url('/images/egg/${ ({theme}) => theme.isDark ? "LogoHeaderLight240x83.png" : "LogoHeaderDark240x83.png" }');
   background-repeat: no-repeat;
   background-position: top center;
   display: flex;
@@ -28,7 +28,7 @@ const Hero = styled.div`
   text-align: center;
 
   ${({ theme }) => theme.mediaQueries.lg} {
-    background-image: url('/images/pan-bg2.svg'), url('/images/pan-bg.svg');
+    background-image: url('/images/coins/ICEBRK.png'), url('/images/blue-hex.png');
     background-position: left center, right center;
     height: 165px;
     padding-top: 0;
@@ -86,12 +86,14 @@ const CTACards = styled(BaseLayout)`
     }
   }
 `
-
 const Home: React.FC = () => {
   const { t } = useTranslation()
   const dispatch = useAppDispatch()
   const { isDark } = useTheme()
   const textColor = isDark ? "primary" : "secondary"
+  const { isXl } = useMatchBreakpoints()
+  const isMobile = !isXl
+  const headerText = isMobile ? '' : t('ICEBRK-R')
   // Fetch farm data once to get the max APR
   useEffect(() => {
     dispatch(fetchFarmsPublicDataAsync(nonArchivedFarms.map((nonArchivedFarm) => nonArchivedFarm.pid)))
@@ -101,9 +103,9 @@ const Home: React.FC = () => {
     <Page>
       <Hero>
         <Heading as="h1" scale="xl" mb="24px" color={textColor}>
-          {t('ICEBRK-R')}
+          { headerText }
         </Heading>
-        <Text>{t('The #1 AMM and yield farm on Binance Smart Chain.')}</Text>
+        <Text>{t('Powered by the Binance Smart Chain.')}</Text>
       </Hero>
       <div>
         <Cards>
@@ -117,7 +119,7 @@ const Home: React.FC = () => {
         </CTACards>
         <Cards>
           <CakeStats />
-          <TotalValueLockedCard />
+          {/* <TotalValueLockedCard /> */}
         </Cards>
       </div>
     </Page>
